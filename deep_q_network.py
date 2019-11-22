@@ -103,7 +103,8 @@ def trainNetwork(s, readout, h_fc1, sess):
 
     # saving and loading networks
     saver = tf.compat.v1.train.Saver()
-    sess.run(tf.compat.v1.initialize_all_variables())
+    # sess.run(tf.compat.v1.initialize_all_variables())
+    sess.run(tf.compat.v1.global_variables_initializer())
     checkpoint = tf.train.get_checkpoint_state("saved_networks")
     if checkpoint and checkpoint.model_checkpoint_path:
         saver.restore(sess, checkpoint.model_checkpoint_path)
